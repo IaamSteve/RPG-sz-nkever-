@@ -1,0 +1,42 @@
+p {
+	margin-left: 3%;
+	text-align: left;
+	font-size: larger;
+}
+
+@keyframes rotate {
+	to {
+		--angle: 360deg;
+	}
+}
+
+div {
+	text-align: center;
+	width: 230px;
+	height: 330px;
+	border: 15px solid;
+	margin-left: 38%;
+	padding-bottom: 39%;
+	border-image: conic-gradient(from 0deg, red, yellow, lime, aqua, blue, magenta, red) 1;
+	animation: 10s rotate linear infinite;
+	font-weight: bold;
+}
+
+
+
+@supports (background: paint(worklet)) {
+	@property --angle {
+		syntax: '<angle>';
+		initial-value: 0deg;
+		inherits: false;
+	}
+
+	div {
+		--angle: 0deg;
+		border-image: conic-gradient(from var(--angle), red, yellow, lime, aqua, blue, magenta, red) 1;
+	}
+}
+
+#colorR {
+	: rgb(255, 0, 0);
+}
